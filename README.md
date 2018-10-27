@@ -4,7 +4,7 @@
 
 本工程主要提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
 
-用法：
+用法：  
   ListWrap<Integer> listWrap = new ListWrap<>(0);  
   listWrap.add(4,4);
 
