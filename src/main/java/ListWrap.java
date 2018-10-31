@@ -17,7 +17,7 @@ public class ListWrap<E> extends AbstractList<E> {
     private E initValue;
 
     public ListWrap(E initValue) {
-        list = new ArrayList<E>();
+        list = new ArrayList<>();
         length = list.size();
         this.initValue = initValue;
     }
@@ -26,13 +26,18 @@ public class ListWrap<E> extends AbstractList<E> {
     @Override
     public void add(int index, E element) {
         int diff = (index+1) - length >= 0 ? (index+1) - length : 0;
-        List<E> diffList = new ArrayList<E>(diff);
+        List<E> diffList = new ArrayList<>(diff);
         for(int i=0; i< diff; i++) {
             diffList.add(initValue);
         }
         list.addAll(diffList);
         list.set(index,element);
         length = list.size();
+    }
+
+    @Override
+    public E set(int index, E element) {
+        return list.set(index,element);
     }
 
     @Override
