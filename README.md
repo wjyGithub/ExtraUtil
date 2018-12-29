@@ -2,8 +2,8 @@
 
 注意:github上编辑文件需要在该行末尾添加两个空格
 
-本工程主要提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
-
+ListWrap类提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
+```
 用法：  
   ListWrap<Integer> listWrap = new ListWrap<>(0);  
   listWrap.add(4,4);
@@ -13,8 +13,7 @@
 
 该List包装类用途之一：主要是在对前端返回图表类数据结构时，有些时候需要对查询数据时，没有数据的位置补0,  
 就可以通过该工具类方便实现
-
-
+```
 
 BeanUtil类提供了对实体类的相关操作方法，目前暂时提供的方法有如下：
 ```
@@ -26,7 +25,7 @@ BeanUtil类提供了对实体类的相关操作方法，目前暂时提供的方
      * @param <T>
      * @return
      */
-List<T> BeanUtil.getPropertys（List<? extends Object> objs,String name,Class<T> propertyType）
+List<T> getPropertys（List<? extends Object> objs,String name,Class<T> propertyType）
     /**
      * 将实体类对象转成JSONObject,key为属性名,value为对象属性的值
      * class User {
