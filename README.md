@@ -7,6 +7,7 @@
 ListWrap:带有默认初始化的List工具类
 BeanUtil:提供了对实体类的相关操作方法
 Table:提供一个表结构的数据格式类
+ListSplit:提供一个将大List分隔成指定长度的小List的工具类
 ```
 
 ListWrap类提供了一个L工具ist的包装类，能够弥补List不能够默认初始化的不足
