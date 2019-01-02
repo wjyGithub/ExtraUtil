@@ -78,30 +78,30 @@ public static final void main(String[] args) {
 Table类提供了一个表结构(三元组)的数据结构
 ```
 用法:
-    Table<String,Integer,String> table = new Table<>();
-    table.put("wjy1",21,"物联网工程师");
-    table.put("wjy2",21,"物联网工程师");
-    table.put("wjy3",22,"物联网工程师");
-    table.put("wjy4",23,"物联网工程师");
-    table.put("wjy5",24,"物联网工程师");
-    System.out.println(table);//运行结果:Table{{key=wjy3, mid=22, value=物联网工程师},{key=wjy4, mid=23, value=物联网工程师},......}
+Table<String,Integer,String> table = new Table<>();
+table.put("wjy1",21,"物联网工程师");
+table.put("wjy2",21,"物联网工程师");
+table.put("wjy3",22,"物联网工程师");
+table.put("wjy4",23,"物联网工程师");
+table.put("wjy5",24,"物联网工程师");
+System.out.println(table);//运行结果:Table{{key=wjy3, mid=22, value=物联网工程师},{key=wjy4, mid=23, value=物联网工程师},......}
 
-    //记录存在
-    System.out.println("--------记录存在------------");
-    Table.TableEntry wjy1 = table.get("wjy1");
-    System.out.println(wjy1);//运行结果:TableEntry{key=21, mid=null, value=物联网工程师}
+//记录存在
+System.out.println("--------记录存在------------");
+Table.TableEntry wjy1 = table.get("wjy1");
+System.out.println(wjy1);//运行结果:TableEntry{key=21, mid=null, value=物联网工程师}
 
-    //记录不存在
-    System.out.println("--------记录不存在------------");
-    Table.TableEntry wjy = table.get("wjy");
-    System.out.println("记录不存在的返回值:" + wjy); //运行结果:记录不存在的返回值:null
+//记录不存在
+System.out.println("--------记录不存在------------");
+Table.TableEntry wjy = table.get("wjy");
+System.out.println("记录不存在的返回值:" + wjy); //运行结果:记录不存在的返回值:null
 
-    //遍历表中全部记录
-    Set<Table.TableEntry<String,Integer,String>> entries = table.entrySet();
-    System.out.println("---------遍历表中的全部记录-----------------");
-    for(Table.TableEntry<String,Integer,String> tableEntry : entries) {
-        System.out.println(tableEntry);//运行结果:TableEntry{key=wjy5, mid=24, value=物联网工程师}
-                                              
-    }
+//遍历表中全部记录
+Set<Table.TableEntry<String,Integer,String>> entries = table.entrySet();
+System.out.println("---------遍历表中的全部记录-----------------");
+for(Table.TableEntry<String,Integer,String> tableEntry : entries) {
+    System.out.println(tableEntry);//运行结果:TableEntry{key=wjy5, mid=24, value=物联网工程师}
+                                          
+}
 ```
   
