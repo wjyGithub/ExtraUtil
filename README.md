@@ -10,7 +10,7 @@ Table:提供一个表结构的数据格式类
 ListSplit:提供一个将大List分隔成指定长度的小List的工具类
 ```
 
-ListWrap类提供了一个L工具ist的包装类，能够弥补List不能够默认初始化的不足
+ListWrap类提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
 ```
 用法：  
   ListWrap<Integer> listWrap = new ListWrap<>(0);  
