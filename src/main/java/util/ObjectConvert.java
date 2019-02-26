@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 对象间数据拷贝工具类
  * @author jianyuan.wei@hand-china.com
  * @date 2019/2/26 14:04
  */
@@ -39,7 +40,7 @@ public class ObjectConvert {
      */
     public static <T> T convert(Class<T> toClazz, Object fromObj) {
         /**
-         * key: 类型+属性名(java.lang.String_id)
+         * key: 类型_属性名(java.lang.String_id)
          * value: 数据
          */
         Map<String,Object> fromObjBufferMap = initToMap(fromObj);
