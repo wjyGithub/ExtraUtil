@@ -8,6 +8,7 @@ ListWrap:带有默认初始化的List工具类
 BeanUtil:提供了对实体类的相关操作方法
 Table:提供一个表结构的数据格式类
 ListSplit:提供一个将大List分隔成指定长度的小List的工具类
+ObjectConvert:进不同对象间的数据拷贝工具类
 ```
 
 ListWrap类提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
@@ -25,31 +26,10 @@ ListWrap类提供了一个List的包装工具类，能够弥补List不能够默�
 
 BeanUtil类提供了对实体类的相关操作方法，目前暂时提供的方法有如下：
 ```
-   /**
-     * 获取List对象中指定属性名的属性值
-     * @param objs 
-     * @param name 属性名
-     * @param propertyType 属性类型
-     * @param <T>
-     * @return
-     */
+//获取List对象中指定属性名的属性值
 List<T> getPropertys（List<? extends Object> objs,String name,Class<T> propertyType）
-    /**
-     * 将实体类对象转成JSONObject,key为属性名,value为对象属性的值
-     * class User {
-     *
-     *    private String name;
-     *
-     *    private Integer age;
-     * }
-     * {
-     *     "name":"wjy",
-     *     "age":2
-     * }
-     * @param objs
-     * @param propertyNames 属性名
-     * @return
-     */
+    
+//将实体类对象转成JSONObject,key为属性名,value为对象属性的值
 List<JSONObject> beanToJSON(List<? extends Object> objs,String... propertyNames)
 
 用法：
@@ -104,5 +84,43 @@ for(Table.TableEntry<String,Integer,String> tableEntry : entries) {
     System.out.println(tableEntry);//运行结果:TableEntry{key=wjy5, mid=24, value=物联网工程师}
                                           
 }
+```
+ObjectConvert类提供了不同对象之间的数据拷贝(拷贝规则: 类中成员属性的类型和成员属性名相同的之间相互拷贝)
+```$xslt
+//将fromObj对象的数据拷贝到toClazz里面
+public static <T> T convert(Class<T> toClazz, Object fromObj)
+
+//将fromObjList对象的数据拷贝到另一个List中
+public static <T> List<T> listConvert(Class<T> toClazz, List<?> fromObjList)
+
+demo类:
+class FromObj {
+
+    private String attr1;
+    
+    private Long attrId;
+    
+    ....
+}
+
+class ToClazz {
+
+    private String attr1;
+    
+    private Long attrId;
+    
+    private String attr2;
+    
+    ...
+}
+
+使用方法
+FromObj fromObj = new FromObj();
+fromObj.setAttr1("魏剑源");
+fromObj.setAttrId(1L);
+
+ToClazz toObj = convert(ToClazz.class,fromObj);
+System.out.println(toObj);  //ToClazz:{attr1:"魏剑源",attrId:1,attr2:null}
+
 ```
   
