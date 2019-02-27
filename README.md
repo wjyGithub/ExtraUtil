@@ -66,7 +66,7 @@ table.put("wjy2",21,"物联网工程师");
 table.put("wjy3",22,"物联网工程师");
 table.put("wjy4",23,"物联网工程师");
 table.put("wjy5",24,"物联网工程师");
-System.out.println(table);//运行结果:Table{{key=wjy3, mid=22, value=物联网工程师},{key=wjy4, mid=23, value=物联网工程师},......}
+System.out.println(table);//运行结果:Table{{key=wjy3, mid=22, value=物联网工程师},{key=wjy4, mid=23, value=物联网工程师},...}
 
 //记录存在
 System.out.println("--------记录存在------------");
