@@ -6,11 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * list的包装类,具备初始化功能
+ * 具备初始化功能的List
  * @author jianyuan.wei@hand-china.com
  * @date 2018/10/27 10:51
  */
-public class ListWrap<E> extends AbstractList<E> {
+public class InitList<E> extends AbstractList<E> {
 
     private List<E> list;
 
@@ -18,15 +18,23 @@ public class ListWrap<E> extends AbstractList<E> {
 
     private E initValue;
 
-    public ListWrap(E initValue) {
+    public InitList(E initValue) {
         list = new ArrayList<>();
         length = list.size();
         this.initValue = initValue;
     }
 
+    @Override
+    public boolean add(E e) {
+        boolean flag = list.add(e);
+        length = list.size();
+        return flag;
+    }
 
     @Override
-    public void add(int index, E element) {
+    public E set(int index, E element) {
+        rangeCheck(index);
+        E oldValue = getOldValue(index);
         int diff = (index+1) - length >= 0 ? (index+1) - length : 0;
         List<E> diffList = new ArrayList<>(diff);
         for(int i=0; i< diff; i++) {
@@ -35,11 +43,21 @@ public class ListWrap<E> extends AbstractList<E> {
         list.addAll(diffList);
         list.set(index,element);
         length = list.size();
+        return oldValue;
     }
 
-    @Override
-    public E set(int index, E element) {
-        return list.set(index,element);
+    private void rangeCheck(int index) {
+        if(index < 0) {
+            throw new IllegalArgumentException("下标范围越界");
+        }
+    }
+
+    private E getOldValue(int index) {
+        if(index >= length) {
+            return initValue;
+        }else {
+            return get(index);
+        }
     }
 
     @Override
@@ -61,5 +79,6 @@ public class ListWrap<E> extends AbstractList<E> {
     public String toString() {
         return list.toString();
     }
+
 
 }

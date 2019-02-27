@@ -4,24 +4,34 @@
 
 总体文件说明
 ```$xslt
-ListWrap:带有默认初始化的List工具类
-BeanUtil:提供了对实体类的相关操作方法
-Table:提供一个表结构的数据格式类
-ListSplit:提供一个将大List分隔成指定长度的小List的工具类
-ObjectConvert:进不同对象间的数据拷贝工具类
-ClassLoaderUtil:提供了classLoader获取方法,以及从jar包中获取某一包下所有文件的全限定名的测试demo
+1. ListWrap:带有默认初始化的List工具类
+2. BeanUtil:提供了对实体类的相关操作方法
+3. Table:提供一个表结构的数据格式类
+4. ListSplit:提供一个将大List分隔成指定长度的小List的工具类
+5. ObjectConvert:进不同对象间的数据拷贝工具类
+6. ClassLoaderUtil:提供了classLoader获取方法,以及从jar包中获取某一包下所有文件的全限定名的测试demo
 ```
 
-ListWrap类提供了一个List的包装工具类，能够弥补List不能够默认初始化的不足
+InitList类提供了一个具有初始化功能的List，能够弥补List不能够默认初始化的不足
 ```
 用法：  
-  ListWrap<Integer> listWrap = new ListWrap<>(0);  
-  listWrap.add(4,4);
+    
+    List<Integer> list = new InitList(0);
+    //正常添加元素
+    list.add(1);
+    list.add(3);
+    System.out.println("list的长度:" + list.size() + ",list:" +list);
+    //输出结果:list的长度:2,list:[1, 3]
+    list.set(4,8);
+    list.set(0,5);
+    System.out.println("list的长度:" + list.size() + ",list:" +list);
+    //输出结果:list的长度:5,list:[5, 3, 0, 0, 8]
 
-其中：add用于向List中指定的位置添加元素，如上,向List的索引为4的位置添加了一个元素4,  
-其未为指定元素的索引位置,使用默认值0,进行初始化
+注意: 对于jdk原生的List的实现类,当对超过当前list长度的下标进行set操作时,会抛出一个异常。本工具类
+重写了set方法,当设置给定下标超过当前list长度时，依旧可以设置赋值,下标和list长度之间的差值会被自动
+使用初始值进行填充
 
-该List包装类用途之一：主要是在对前端返回图表类数据结构时，有些时候需要对查询数据时，没有数据的位置补0,  
+该InitList的用途之一：主要是在对前端返回图表类数据结构时，有些时候需要对查询的数据，没有数据的位置补0,  
 就可以通过该工具类方便实现
 ```
 
