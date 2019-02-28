@@ -4,7 +4,7 @@
 
 总体文件说明
 ```$xslt
-1. ListWrap:带有默认初始化的List工具类
+1. InitList:带有默认初始化的List工具类
 2. BeanUtil:提供了对实体类的相关操作方法
 3. Table:提供一个表结构的数据格式类
 4. ListSplit:提供一个将大List分隔成指定长度的小List的工具类
