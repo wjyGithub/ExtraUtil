@@ -128,11 +128,11 @@ class ToClazz {
 
 使用方法
 FromObj fromObj = new FromObj();
-fromObj.setAttr1("魏剑源");
+fromObj.setAttr1("wjy");
 fromObj.setAttrId(1L);
 
 ToClazz toObj = convert(ToClazz.class,fromObj);
-System.out.println(toObj);  //ToClazz:{attr1:"魏剑源",attrId:1,attr2:null}
+System.out.println(toObj);  //ToClazz:{attr1:"wjy",attrId:1,attr2:null}
 
 ```
   
