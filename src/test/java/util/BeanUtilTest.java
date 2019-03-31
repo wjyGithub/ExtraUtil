@@ -29,7 +29,7 @@ public class BeanUtilTest {
         // 输出结果:["wjy0","wjy1","wjy2","wjy3",......]
 
         //属性名没有，则默认为该实体类全部属性
-        List<JSONObject> jsonList = BeanUtil.beanToJSON(users,"name","age");
+        List<JSONObject> jsonList = BeanUtil.beanToJson(users,"name","age");
         System.out.println(jsonList);
         //输出结果:[{"name":"wjy0","age":0},{"name":"wjy1","age":1},......]
     }
