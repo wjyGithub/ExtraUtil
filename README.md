@@ -61,7 +61,7 @@ public static final void main(String[] args) {
   List<String> names = BeanUtil.getPropertys(users,"name",String.class);
   System.out.println(names);  // 输出结果:["wjy0","wjy1","wjy2","wjy3",......]
   
-  List<JSONObject> jsonList = BeanUtil.beanToJSON(users,"name","age"); //属性名没有，则默认为该实体类全部属性
+  List<JSONObject> jsonList = BeanUtil.beanToJson(users,"name","age"); //属性名没有，则默认为该实体类全部属性
   System.out.println(jsonList); //输出结果:[{"name":"wjy0","age":0},{"name":"wjy1","age":1},......]
   
 }
